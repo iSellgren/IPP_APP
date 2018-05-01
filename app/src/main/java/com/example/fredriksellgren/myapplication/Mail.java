@@ -27,7 +27,7 @@ public class Mail extends AppCompatActivity {
         et_subject = (EditText) findViewById(R.id.et_subject);
         et_message = (EditText) findViewById(R.id.et_message);
 
-        b_send  = (Button) findViewById(R.id.b_send);
+        b_send  = findViewById(R.id.b_send);
 
         b_send.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,7 +43,7 @@ public class Mail extends AppCompatActivity {
 
                 intent.setType("message/rfc822");
 
-                startActivity(intent.createChooser(intent, "Select Email app"));
+                startActivity(Intent.createChooser(intent, "Select Email app"));
 
 
             }

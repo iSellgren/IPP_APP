@@ -43,12 +43,12 @@ public class Schema extends AppCompatActivity implements
                 super.onCreate(savedInstanceState);
                 setContentView(R.layout.activity_schema);
 
-                btnDatePicker=(Button)findViewById(R.id.btn_date);
-                btnTimePicker=(Button)findViewById(R.id.btn_time);
-                btnStopTimePicker=(Button)findViewById(R.id.btn_stop);
-                txtDate=(EditText)findViewById(R.id.in_date);
-                txtTime=(EditText)findViewById(R.id.in_time);
-                txtStop=(EditText)findViewById(R.id.in_stop);
+                btnDatePicker= findViewById(R.id.btn_date);
+                btnTimePicker= findViewById(R.id.btn_time);
+                btnStopTimePicker= findViewById(R.id.btn_stop);
+                txtDate= findViewById(R.id.in_date);
+                txtTime= findViewById(R.id.in_time);
+                txtStop= findViewById(R.id.in_stop);
 
 
                 btnDatePicker.setOnClickListener(this);
@@ -126,8 +126,8 @@ public class Schema extends AppCompatActivity implements
         }
 
     public void seebbar( ){
-        seek_bar = (SeekBar)findViewById(R.id.seekBar);
-        text_view =(TextView)findViewById(R.id.textView);
+        seek_bar = findViewById(R.id.seekBar);
+        text_view = findViewById(R.id.textView);
         //infos = (TextView)findViewById(R.id.info);
         text_view.setText("Covered : " + seek_bar.getProgress());
 

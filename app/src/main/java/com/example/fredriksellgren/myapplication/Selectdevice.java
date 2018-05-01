@@ -15,7 +15,7 @@ public class Selectdevice extends AppCompatActivity {
     }
 
     public void kitTapButton(View view) {
-        Button button = (Button)findViewById(R.id.kitcbut);
+        Button button = findViewById(R.id.kitcbut);
 
 
         Intent a = new Intent(Selectdevice.this, KitchenActivity.class);
@@ -24,7 +24,7 @@ public class Selectdevice extends AppCompatActivity {
     }
 
     public void bedTapButton(View view) {
-        Button button = (Button)findViewById(R.id.bedbut);
+        Button button = findViewById(R.id.bedbut);
 
 
         Intent b = new Intent(Selectdevice.this, BedroomActivity.class);
@@ -32,7 +32,7 @@ public class Selectdevice extends AppCompatActivity {
     }
 
     public void livTapButton(View view) {
-        Button button = (Button)findViewById(R.id.livingbut);
+        Button button = findViewById(R.id.livingbut);
 
 
         Intent c = new Intent(Selectdevice.this, Living_RoomActivity.class);

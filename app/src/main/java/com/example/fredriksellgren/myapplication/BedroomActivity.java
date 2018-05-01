@@ -32,8 +32,8 @@ public class BedroomActivity extends AppCompatActivity {
 
 
     public void seebbar( ){
-        seek_bar = (SeekBar)findViewById(R.id.seekBar);
-        text_view =(TextView)findViewById(R.id.textView);
+        seek_bar = findViewById(R.id.seekBar);
+        text_view = findViewById(R.id.textView);
         text_view.setText("Covered : " + seek_bar.getProgress());
 
 

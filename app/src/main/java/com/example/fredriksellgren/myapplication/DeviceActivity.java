@@ -17,7 +17,7 @@ public class DeviceActivity extends AppCompatActivity {
         setContentView(R.layout.activity_device);
     }
     public void schTapButton(View view) {
-        Button button = (Button)findViewById(R.id.schmbut);
+        Button button = findViewById(R.id.schmbut);
 
 
         Intent q = new Intent(DeviceActivity.this, Schema.class);
@@ -25,7 +25,7 @@ public class DeviceActivity extends AppCompatActivity {
 
     }
     public void didTapButton(View view) {
-        Button button = (Button)findViewById(R.id.conbut);
+        Button button = findViewById(R.id.conbut);
 
 
         Intent q = new Intent(DeviceActivity.this, Selectdevice.class);
