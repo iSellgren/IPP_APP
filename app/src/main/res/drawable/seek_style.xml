@@ -1,0 +1,64 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+<item android:id="@android:id/background">
+    <shape
+        android:shape="rectangle">
+
+        <corners android:topLeftRadius="10dp"
+            android:topRightRadius="10dp"
+            android:bottomRightRadius="10dp"
+            android:bottomLeftRadius="10dp"/>
+        <gradient
+            android:startColor="#000099CC"
+            android:centerColor="#003399CC"
+            android:centerY="0.75"
+            android:endColor="#006699CC"
+            android:angle="270"
+            />
+    </shape>
+</item>
+
+<item android:id="@android:id/secondaryProgress">
+<clip>
+    <shape
+        android:shape="rectangle">
+        <corners android:topLeftRadius="10dp"
+            android:topRightRadius="10dp"
+            android:bottomRightRadius="10dp"
+            android:bottomLeftRadius="10dp"/>
+        <gradient
+            android:startColor="#80ffd300"
+            android:centerColor="#80ffb600"
+            android:centerY="0.75"
+            android:endColor="#a0ffcb00"
+            android:angle="270"
+            />
+    </shape>
+</clip>
+</item>
+
+<item android:id="@android:id/progress">
+<clip>
+    <shape
+        android:dither="true"
+        android:shape="rectangle">
+        <size
+               android:height="800dp" />
+        <corners
+            android:topLeftRadius="10dp"
+            android:topRightRadius="10dp"
+            android:bottomRightRadius="10dp"
+            android:bottomLeftRadius="10dp"/>
+        <gradient
+            android:startColor="#ee9d9e9d"
+            android:type="radial"
+            android:centerColor="#ee5a5d5a"
+            android:centerY="1"
+            android:endColor="#ee747674"
+            android:angle="270"
+            android:gradientRadius="20dp"
+
+            />
+    </shape>
+</clip>
+</item>
+    </layer-list>
