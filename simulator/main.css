@@ -1,9 +1,12 @@
-body {
+body
+{
 	padding: 0px;
 	margin: 0px;
+	overflow: hidden;
 }
 
-#box {
+#box
+{
 	width: 800px;
 	height: 900px;
 	background-color: rgba(50,50,50,0.9);
@@ -15,7 +18,8 @@ body {
 	border-radius: 0px 0px 30px 30px;
 }
 
-#fonster {
+#fonster
+{
 	position: absolute;
 	width: 800px;
 	height: auto;
@@ -24,3 +28,52 @@ body {
 	top: 50px;
 }
 
+#sun-container
+{
+	right: -160px;
+	top: -160px;
+	position: absolute;
+	width: 800px;
+	height: 800px;
+}
+
+#sun
+{
+	left: 50%;
+	border-radius: 100%;
+	position: absolute;
+	background-color: yellow;
+	width: 50%;
+	height: 50%;
+}
+
+.sun-strip
+{
+	background: yellow;
+	position: absolute;
+	width: 40px;
+	height: 200px;
+	border-radius: 35px;
+	left: 100%;
+	top: 0%;
+}
+
+#sun-strip-1
+{
+	margin-left: -220px;
+	margin-top: 440px;
+}
+
+#sun-strip-2
+{
+	margin-left: -570px;
+	margin-top: 100px;	
+	transform: rotate(90deg);
+}
+
+#sun-strip-3
+{
+	margin-left: -470px;
+	margin-top: 350px;	
+	transform: rotate(45deg);
+}

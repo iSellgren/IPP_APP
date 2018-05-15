@@ -61,20 +61,12 @@ t = setInterval(updateBox, 20);
 
 <div id="box"></div>
 
-<!--<h1>Php fönkar</h1>
-
-<form action="process.php" method="post">
-	<input type="hidden" name="up" value="0">
-	<input type="hidden" name="down" value="0">
-	<input type="hidden" name="id" value="1">
-	<input type="checkbox" name="up" value="1"> Up <br>
-	<input type="checkbox" name="down" value="1"> Down <br><br>
-	<input type="submit" value="Submit"> 
-</form>-->
-
-<!--<script type="text/javascript"> 
-	updateBox();
-</script>-->
+<div id="sun-container">
+	<div class="sun-strip" id="sun"></div>
+	<div class="sun-strip" id="sun-strip-1"></div>
+	<div class="sun-strip" id="sun-strip-2"></div>
+	<div class="sun-strip" id="sun-strip-3"></div>
+</div>
 
 </body>
 </html>
