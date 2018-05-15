@@ -37,9 +37,7 @@ body
 	height: 800px;
 }
 
-#sun
-{
-	left: 50%;
+#sun { left: 50%;
 	border-radius: 100%;
 	position: absolute;
 	background-color: yellow;
@@ -76,4 +74,16 @@ body
 	margin-left: -470px;
 	margin-top: 350px;	
 	transform: rotate(45deg);
+}
+
+@font-face
+{
+	font-family: "digital";
+	src: url("digital.ttf");
+}
+
+#time
+{
+	font-family: "digital";
+	font-size: 40px;
 }

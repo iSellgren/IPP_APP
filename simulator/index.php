@@ -53,7 +53,14 @@ function updateTime()
 	var min = Math.round((hours - Math.floor(hours)) * minute);
 	hours = Math.floor(hours);
 
-	var formatedtime = hours + ':' + min;
+	var prefixa = "", prefixb = "";
+	if(hours < 10)
+		prefixa = "0";
+	if(min < 10)
+		prefixb = "0";
+
+
+	var formatedtime = prefixa + hours + ':' + prefixb + min;
 
 	document.getElementById("time").innerHTML = formatedtime;
 }
