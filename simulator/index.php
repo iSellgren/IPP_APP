@@ -19,20 +19,6 @@ $bit = $db->fetch(1);
 
 function updateBox()
 {
-	/*var http = new XMLHttpRequest();
-	var url	 = "refresh.php";
-	var params = "id=1";
-
-	http.open("POST", url, true);
-
-	http.sendRequestHeader("content-type", "application/x-www-form-urlencoded");
-
-	http.onreadystatechange = function() {
-		if(http.readyState == 4 && http.status == 200) {
-			alert(http.responsetext);
-		}
-	}
-	http.send(params);*/
 
 	jQuery.ajax({
 		url:"refresh.php",
@@ -53,9 +39,31 @@ function updateBox()
 
 }
 
+let endOfDay = 86400;
+let hour = 60 * 60;
+let minute = 60;
+var time = hour * 8;
+
+function updateTime()
+{
+	time+= minute;
+	if(time >= endOfDay) time = 0;
+
+	var hours = (time / hour);
+	var min = Math.round((hours - Math.floor(hours)) * minute);
+	hours = Math.floor(hours);
+
+	var formatedtime = hours + ':' + min;
+
+	document.getElementById("time").innerHTML = formatedtime;
+}
+
+d = setInterval(updateTime, 100);
 t = setInterval(updateBox, 20);
 
 </script>
+
+<div id="time"></div>
 
 <img id="fonster" src="fonster.gif"></img>
 
