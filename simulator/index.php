@@ -19,20 +19,6 @@ $bit = $db->fetch(1);
 
 function updateBox()
 {
-	/*var http = new XMLHttpRequest();
-	var url	 = "refresh.php";
-	var params = "id=1";
-
-	http.open("POST", url, true);
-
-	http.sendRequestHeader("content-type", "application/x-www-form-urlencoded");
-
-	http.onreadystatechange = function() {
-		if(http.readyState == 4 && http.status == 200) {
-			alert(http.responsetext);
-		}
-	}
-	http.send(params);*/
 
 	jQuery.ajax({
 		url:"refresh.php",
@@ -53,28 +39,49 @@ function updateBox()
 
 }
 
+let endOfDay = 86400;
+let hour = 60 * 60;
+let minute = 60;
+var time = hour * 8;
+
+function updateTime()
+{
+	time+= minute;
+	if(time >= endOfDay) time = 0;
+
+	var hours = (time / hour);
+	var min = Math.round((hours - Math.floor(hours)) * minute);
+	hours = Math.floor(hours);
+
+	var prefixa = "", prefixb = "";
+	if(hours < 10)
+		prefixa = "0";
+	if(min < 10)
+		prefixb = "0";
+
+
+	var formatedtime = prefixa + hours + ':' + prefixb + min;
+
+	document.getElementById("time").innerHTML = formatedtime;
+}
+
+d = setInterval(updateTime, 100);
 t = setInterval(updateBox, 20);
 
 </script>
+
+<div id="time"></div>
 
 <img id="fonster" src="fonster.gif"></img>
 
 <div id="box"></div>
 
-<!--<h1>Php fönkar</h1>
-
-<form action="process.php" method="post">
-	<input type="hidden" name="up" value="0">
-	<input type="hidden" name="down" value="0">
-	<input type="hidden" name="id" value="1">
-	<input type="checkbox" name="up" value="1"> Up <br>
-	<input type="checkbox" name="down" value="1"> Down <br><br>
-	<input type="submit" value="Submit"> 
-</form>-->
-
-<!--<script type="text/javascript"> 
-	updateBox();
-</script>-->
+<div id="sun-container">
+	<div class="sun-strip" id="sun"></div>
+	<div class="sun-strip" id="sun-strip-1"></div>
+	<div class="sun-strip" id="sun-strip-2"></div>
+	<div class="sun-strip" id="sun-strip-3"></div>
+</div>
 
 </body>
 </html>
