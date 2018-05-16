@@ -3,6 +3,7 @@ package com.example.fredriksellgren.myapplication;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -25,6 +26,8 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Calendar;
+
+import javax.xml.transform.Result;
 
 public class Schema extends AppCompatActivity implements
         View.OnClickListener {
@@ -201,6 +204,8 @@ public class Schema extends AppCompatActivity implements
                 is.close();
                 httpURLConnection.disconnect();
 
+
+
                 return data;
 
             } catch (MalformedURLException e) {
@@ -213,11 +218,12 @@ public class Schema extends AppCompatActivity implements
         }
 
         @Override
-        protected void onPostExecute(String s) {
-            if(s.equals("")){
-                s="Data saved successfully.";
-            }
-            Toast.makeText(ctx, s, Toast.LENGTH_LONG).show();
+        protected void onPostExecute(String result) {
+            Toast.makeText(ctx, "Schedule set", Toast.LENGTH_LONG).show();
+            Intent passdata_intent = new Intent(Schema.this,StatusActivity.class);
+            passdata_intent.putExtra("result",result);
+            startActivity(passdata_intent);
+
         }
     }
 

@@ -26,10 +26,10 @@ public class MainActivity extends AppCompatActivity {
         startActivity(p);
     }
 
-    //public void Status(View view) {
-      //  Intent k = new Intent(tester.this, Statistic.class);
-        //startActivity(k);
-    //}
+    public void Status(View view) {
+        Intent k = new Intent(MainActivity.this, Status.class);
+        startActivity(k);
+    }
     public void Mail(View view) {
         Intent l = new Intent(MainActivity.this, Mail.class);
         startActivity(l);
