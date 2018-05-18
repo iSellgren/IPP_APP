@@ -33,6 +33,10 @@ public class Status extends AppCompatActivity {
 
         b.execute(" ", " "," ");
 
+        Status.BackGrounds a = new Status.BackGrounds();
+
+        a.execute(" ", " "," ");
+
     }
 
 
@@ -91,5 +95,63 @@ public class Status extends AppCompatActivity {
 
         }
     }
+
+
+    class BackGrounds extends AsyncTask<String, String, String> {
+
+        @Override
+        protected String doInBackground(String... params) {
+            String id = "2";
+            String data="";
+            int tmp;
+
+            try {
+                URL url = new URL("http://192.168.43.145/refresh.php");
+
+                String urlParams = "&id="+id;
+
+                HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+                httpURLConnection.setDoOutput(true);
+                httpURLConnection.setRequestMethod("POST");
+                OutputStream os = httpURLConnection.getOutputStream();
+                os.write(urlParams.getBytes());
+                os.flush();
+                os.close();
+                InputStream is = httpURLConnection.getInputStream();
+                while((tmp=is.read())!=-1){
+                    data+= (char)tmp;
+                }
+                is.close();
+                httpURLConnection.disconnect();
+
+
+
+                return data;
+
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+                return "Exception: "+e.getMessage();
+            } catch (IOException e) {
+                e.printStackTrace();
+                return "Exception: "+e.getMessage();
+            }
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            TextView textView =(TextView)findViewById(R.id.textView1);
+            String allt[] = result.split(" ");
+            String timeDown = result.substring(9,15);
+            String timeUp = result.substring(18,22);
+
+
+            textView.setText(allt[1] +" Percent" +"\n" +timeDown+ " Time when curtain goes lowers" + "\n" + timeUp+ " Time when curtain goes raises");
+
+
+
+
+        }
+    }
+
 
 }

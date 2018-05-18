@@ -80,7 +80,7 @@ public class KitchenActivity extends AppCompatActivity {
         @Override
         protected String doInBackground(String... params) {
             String up = params[0];
-            String id = "1";
+            String id = "2";
             String data="";
             int tmp;
 

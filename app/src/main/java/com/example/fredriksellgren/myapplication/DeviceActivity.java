@@ -20,7 +20,7 @@ public class DeviceActivity extends AppCompatActivity {
         Button button = findViewById(R.id.schmbut);
 
 
-        Intent q = new Intent(DeviceActivity.this, Schema.class);
+        Intent q = new Intent(DeviceActivity.this, SelectdeviceCal.class);
         startActivity(q);
 
     }
