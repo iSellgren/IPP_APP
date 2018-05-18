@@ -144,10 +144,6 @@ public class Schema extends AppCompatActivity implements
                         progress_value = progress;
                         text_view.setText("Covered : " + progress );
 
-                            //infos.setText(txtTime.getText().toString() + " - " + txtStop.getText().toString() + System.getProperty("line.separator") + "On date " + txtDate.getText().toString()+ System.getProperty("line.separator") + "Window covered by " + progress+"%");
-
-
-                        //Toast.makeText(Schema.this,"SeekBar in progress", Toast.LENGTH_LONG).show();
                     }
 
                     @Override
@@ -169,6 +165,8 @@ public class Schema extends AppCompatActivity implements
         BackGround b = new BackGround();
 
         b.execute(String.valueOf(progress_value), txtTime.getText().toString(), txtStop.getText().toString());
+
+
 
     }
 
@@ -215,6 +213,7 @@ public class Schema extends AppCompatActivity implements
                 e.printStackTrace();
                 return "Exception: "+e.getMessage();
             }
+
         }
 
         @Override
@@ -225,6 +224,7 @@ public class Schema extends AppCompatActivity implements
             startActivity(passdata_intent);
 
         }
+
     }
 
 
