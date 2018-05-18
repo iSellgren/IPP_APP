@@ -13,7 +13,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="90dp"
-        android:background="@drawable/ic_memory_black_24dp"
+        android:background="@drawable/ic_swap_vert_black_24dp"
         android:onClick="didTapButton" />
 
     <TextView
@@ -37,13 +37,13 @@
 
     <TextView
         android:layout_width="wrap_content"
-        android:textSize="20sp"
+        android:textSize="15sp"
         android:textStyle="bold"
         android:layout_height="wrap_content"
         android:layout_below="@+id/schmbut"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="-158dp"
-        android:text="Press the icon to control your device" />
+        android:text="Press the icon to set calender on your device" />
 
 
 

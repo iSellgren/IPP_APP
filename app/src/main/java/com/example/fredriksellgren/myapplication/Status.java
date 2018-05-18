@@ -24,20 +24,23 @@ public class Status extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_status2);
 
-        TextView textView =(TextView)findViewById(R.id.textView);
-    }
+        TextView textView = (TextView) findViewById(R.id.textView);
 
-    public void Done(View view) {
 
         Status.BackGround b = new Status.BackGround();
 
-        b.execute(" ", " "," ");
+        b.execute(" ", " ", " ");
 
         Status.BackGrounds a = new Status.BackGrounds();
 
-        a.execute(" ", " "," ");
+        a.execute(" ", " ", " ");
 
+        Status.BackGroundsd c = new Status.BackGroundsd();
+
+        c.execute(" ", " ", " ");
     }
+
+
 
 
     class BackGround extends AsyncTask<String, String, String> {
@@ -84,11 +87,11 @@ public class Status extends AppCompatActivity {
         protected void onPostExecute(String result) {
             TextView textView =(TextView)findViewById(R.id.textView);
             String allt[] = result.split(" ");
-            String timeDown = result.substring(9,15);
-            String timeUp = result.substring(18,23);
+            String timeDown = allt[2].substring(3);
+            String timeUp = allt[3].substring(3);
 
 
-            textView.setText(allt[1] +" Percent" +"\n" +timeDown+ " Time when curtain goes lowers" + "\n" + timeUp+ " Time when curtain goes raises");
+            textView.setText(allt[1] +" Percent" +"\n" +timeDown+ " Time when curtain lowers" + "\n" + timeUp+ " Time when curtain raises");
 
 
 
@@ -141,11 +144,66 @@ public class Status extends AppCompatActivity {
         protected void onPostExecute(String result) {
             TextView textView =(TextView)findViewById(R.id.textView1);
             String allt[] = result.split(" ");
-            String timeDown = result.substring(9,15);
-            String timeUp = result.substring(18,22);
+            String timeDown = allt[2].substring(3);
+            String timeUp = allt[3].substring(3);
 
 
-            textView.setText(allt[1] +" Percent" +"\n" +timeDown+ " Time when curtain goes lowers" + "\n" + timeUp+ " Time when curtain goes raises");
+            textView.setText(allt[1] +" Percent" +"\n" +timeDown+ " Time when curtain lowers" + "\n" + timeUp+ " Time when curtain raises");
+
+
+
+
+        }
+    }
+    class BackGroundsd extends AsyncTask<String, String, String> {
+
+        @Override
+        protected String doInBackground(String... params) {
+            String id = "3";
+            String data="";
+            int tmp;
+
+            try {
+                URL url = new URL("http://192.168.43.145/refresh.php");
+
+                String urlParams = "&id="+id;
+
+                HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+                httpURLConnection.setDoOutput(true);
+                httpURLConnection.setRequestMethod("POST");
+                OutputStream os = httpURLConnection.getOutputStream();
+                os.write(urlParams.getBytes());
+                os.flush();
+                os.close();
+                InputStream is = httpURLConnection.getInputStream();
+                while((tmp=is.read())!=-1){
+                    data+= (char)tmp;
+                }
+                is.close();
+                httpURLConnection.disconnect();
+
+
+
+                return data;
+
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+                return "Exception: "+e.getMessage();
+            } catch (IOException e) {
+                e.printStackTrace();
+                return "Exception: "+e.getMessage();
+            }
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            TextView textView =(TextView)findViewById(R.id.textView2);
+            String allt[] = result.split(" ");
+            String timeDown = allt[2].substring(3);
+            String timeUp = allt[3].substring(3);
+
+
+            textView.setText(allt[1] +" Percent" +"\n" +timeDown+ " Time when curtain lowers" + "\n" + timeUp+ " Time when curtain raises");
 
 
 

@@ -45,15 +45,13 @@ import java.util.Calendar;
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_living_room_cal);
 
-            btnDatePicker = findViewById(R.id.btn_date);
             btnTimePicker = findViewById(R.id.btn_time);
             btnStopTimePicker = findViewById(R.id.btn_stop);
-            txtDate = findViewById(R.id.in_date);
+
             txtTime = findViewById(R.id.in_time);
             txtStop = findViewById(R.id.in_stop);
 
 
-            btnDatePicker.setOnClickListener(this);
             btnTimePicker.setOnClickListener(this);
             btnStopTimePicker.setOnClickListener(this);
             seebbar();
@@ -63,28 +61,6 @@ import java.util.Calendar;
         @Override
         public void onClick(View v) {
 
-            if (v == btnDatePicker) {
-
-                // Get Current Date
-                final Calendar c = Calendar.getInstance();
-                mYear = c.get(Calendar.YEAR);
-                mMonth = c.get(Calendar.MONTH);
-                mDay = c.get(Calendar.DAY_OF_MONTH);
-
-
-                DatePickerDialog datePickerDialog = new DatePickerDialog(this,
-                        new DatePickerDialog.OnDateSetListener() {
-
-                            @Override
-                            public void onDateSet(DatePicker view, int year,
-                                                  int monthOfYear, int dayOfMonth) {
-
-                                txtDate.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
-
-                            }
-                        }, mYear, mMonth, mDay);
-                datePickerDialog.show();
-            }
             if (v == btnTimePicker) {
 
                 // Get Current Time
@@ -177,12 +153,12 @@ import java.util.Calendar;
                 String up = params[0];
                 String time_up = params[1];
                 String time_down = params[2];
-                String id = "1";
+                String id = "3";
                 String data = "";
                 int tmp;
 
                 try {
-                    URL url = new URL("http://192.168.43.145/process.php");
+                    URL url = new URL("http://192.168.43.145/time.php");
 
                     String urlParams = "time_up=" + up + "&time_end=" + time_down + "&time_begin=" + time_up + "&id=" + id;
 
@@ -217,7 +193,7 @@ import java.util.Calendar;
             @Override
             protected void onPostExecute(String result) {
                 Toast.makeText(ctx, "Schedule set", Toast.LENGTH_LONG).show();
-                Intent passdata_intent = new Intent(com.example.fredriksellgren.myapplication.Living_RoomActivityCal.this, StatusActivity.class);
+                Intent passdata_intent = new Intent(Living_RoomActivityCal.this, StatusActivity.class);
                 passdata_intent.putExtra("result", result);
                 startActivity(passdata_intent);
 

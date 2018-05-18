@@ -63,7 +63,11 @@
             android:label="Devices"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name=".Status" />
+        <activity
+            android:name=".Status"
+            android:label="Devices"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity android:name=".KitchenActivityCal" />
         <activity android:name=".Living_RoomActivityCal" />
         <activity android:name=".BedroomActivityCal"></activity>
