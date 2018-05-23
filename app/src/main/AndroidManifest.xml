@@ -68,10 +68,18 @@
             android:label="Devices"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name=".KitchenActivityCal" />
-        <activity android:name=".Living_RoomActivityCal" />
-        <activity android:name=".BedroomActivityCal"></activity>
-        <activity android:name=".SelectdeviceCal"/>
+        <activity android:name=".KitchenActivityCal"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity android:name=".Living_RoomActivityCal"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity android:name=".BedroomActivityCal"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" ></activity>
+        <activity android:name=".SelectdeviceCal"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
     </application>
 
 </manifest>

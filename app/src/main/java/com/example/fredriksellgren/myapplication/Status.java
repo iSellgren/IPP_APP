@@ -19,6 +19,9 @@ import java.net.URL;
 public class Status extends AppCompatActivity {
     Context ctx=this;
 
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,27 +46,29 @@ public class Status extends AppCompatActivity {
 
 
 
+
+    //Hämtar data från databasen
     class BackGround extends AsyncTask<String, String, String> {
 
         @Override
         protected String doInBackground(String... params) {
-            String id = "1";
+            String id = "1"; // Sätter id till 1
             String data="";
             int tmp;
 
             try {
-                URL url = new URL("http://192.168.43.145/refresh.php");
+                URL url = new URL("http://192.168.43.145/refresh.php"); // ansluter till databasens URL.
 
                 String urlParams = "&id="+id;
 
-                HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
-                httpURLConnection.setDoOutput(true);
+                HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection(); // kollar om anslutningen finns.
+                httpURLConnection.setDoOutput(true); // DoOutput är satt till true  för att använda URL som output.
                 httpURLConnection.setRequestMethod("POST");
-                OutputStream os = httpURLConnection.getOutputStream();
-                os.write(urlParams.getBytes());
-                os.flush();
-                os.close();
-                InputStream is = httpURLConnection.getInputStream();
+                OutputStream os = httpURLConnection.getOutputStream(); // kastar en exception om URL inte supportar output
+                os.write(urlParams.getBytes()); //Denna Skriver data till URL.
+                os.flush(); // Flushar strömmen
+                os.close(); // stänger strömmen
+                InputStream is = httpURLConnection.getInputStream(); // Kollar vad vi får tillbaka
                 while((tmp=is.read())!=-1){
                     data+= (char)tmp;
                 }
@@ -82,19 +87,15 @@ public class Status extends AppCompatActivity {
                 return "Exception: "+e.getMessage();
             }
         }
-
         @Override
-        protected void onPostExecute(String result) {
-            TextView textView =(TextView)findViewById(R.id.textView);
+        protected void onPostExecute(String result) { // Datan vi får tillbaka placeras i strängen result
+            TextView textView =(TextView)findViewById(R.id.textView); // Datan skrivs ut i en textView
             String allt[] = result.split(" ");
             String timeDown = allt[2].substring(3);
             String timeUp = allt[3].substring(3);
 
 
             textView.setText(allt[1] +" Percent" +"\n" +timeDown+ " Time when curtain lowers" + "\n" + timeUp+ " Time when curtain raises");
-
-
-
 
         }
     }
