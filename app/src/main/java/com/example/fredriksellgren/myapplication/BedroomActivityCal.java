@@ -155,7 +155,7 @@ public class BedroomActivityCal extends AppCompatActivity implements
             String up = params[0];
             String time_up = params[1];
             String time_down = params[2];
-            String id = "1";
+            String id = "3";
             String data = "";
             int tmp;
 

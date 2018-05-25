@@ -52,7 +52,7 @@ public class Status extends AppCompatActivity {
 
         @Override
         protected String doInBackground(String... params) {
-            String id = "1"; // Sätter id till 1
+            String id = "3"; // Sätter id till 1
             String data="";
             int tmp;
 
@@ -105,7 +105,7 @@ public class Status extends AppCompatActivity {
 
         @Override
         protected String doInBackground(String... params) {
-            String id = "2";
+            String id = "1";
             String data="";
             int tmp;
 
@@ -160,7 +160,7 @@ public class Status extends AppCompatActivity {
 
         @Override
         protected String doInBackground(String... params) {
-            String id = "3";
+            String id = "2";
             String data="";
             int tmp;
 

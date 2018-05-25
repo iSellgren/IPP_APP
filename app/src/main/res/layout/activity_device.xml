@@ -43,7 +43,7 @@
         android:layout_below="@+id/schmbut"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="-158dp"
-        android:text="Press the icon to set calender on your device" />
+        android:text="Press the icon to set schedule for your device" />
 
 
 

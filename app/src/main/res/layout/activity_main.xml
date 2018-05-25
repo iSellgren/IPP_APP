@@ -40,7 +40,7 @@
             android:layout_marginStart="136dp"
             android:layout_marginTop="32dp"
             android:rotation="30"
-            android:text="Devices / Controll"
+            android:text="Devices / Control"
             android:textColor="@android:color/background_light"
             android:textSize="24sp" />
 
